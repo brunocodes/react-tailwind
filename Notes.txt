@@ -1,0 +1,53 @@
+###############################################
+#########    Install Tailwind CSS     #########
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+Configure your template paths
+Add the paths to all of your template files in your tailwind.config.js file.
+
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+Add the Tailwind directives to your CSS
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+###############################################
+#########     Github Pages Setup      #########
+
+npm install gh-pages --save-dev
+
+{
+  "homepage": "https://brunocodes.github.io/",
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/brunocodes/brunocodes.github.io.git
+git push -u origin main
